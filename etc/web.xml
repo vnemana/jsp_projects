@@ -1,5 +1,6 @@
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
 	
 	<servlet>
@@ -9,5 +10,36 @@
 	<servlet-mapping>
 		<servlet-name>Coffee Selector</servlet-name> 
 		<url-pattern>/SelectCoffee.do</url-pattern>
-	</servlet-mapping> 
+	</servlet-mapping>
+    <servlet>
+        <servlet-name>ListenerTester</servlet-name>
+        <servlet-class>com.example.ListenerTester</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListenerTester</servlet-name>
+        <url-pattern>/ListenTest.do</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>breed</param-name>
+        <param-value>German Shepherd</param-value>
+    </context-param>
+    <listener>
+        <listener-class>com.example.BreedContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>CoffeeParamsTest</servlet-name>
+        <servlet-class>com.example.TestInitParams</servlet-class>
+        <init-param>
+            <param-name>adminEmail</param-name>
+            <param-value>vnemana@mahesh.com</param-value>
+        </init-param>
+        <init-param>
+            <param-name>mainEmail</param-name>
+            <param-value>maheshmain@mahesh.com</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CoffeeParamsTest</servlet-name>
+        <url-pattern>/Tester.do</url-pattern>
+    </servlet-mapping>
 </web-app>
